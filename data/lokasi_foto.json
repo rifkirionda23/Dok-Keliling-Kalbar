@@ -1,0 +1,226 @@
+[
+  {
+    "Nama_Lokasi": "Batu Burung",
+    "Kabupaten": "Singkawang",
+    "lat": 0.8668275313675431,
+    "lon": 108.90685232551213,
+    "foto": "BatuBurung.jpg"
+  },
+  {
+    "Nama_Lokasi": "Bukit kelam",
+    "Kabupaten": "Sintang",
+    "lat": 0.060407253271503,
+    "lon": 111.65678026490039,
+    "foto": "Bukit_Kelam.jpg"
+  },
+  {
+    "Nama_Lokasi": "Bukit Su Saleh",
+    "Kabupaten": "Bengkayang",
+    "lat": 0.823932182775766,
+    "lon": 108.85994462019748,
+    "foto": "Bukit_SuSaleh.jpg"
+  },
+  {
+    "Nama_Lokasi": "Bukit Talogah",
+    "Kabupaten": "Bengkayang",
+    "lat": 0.5737962311449157,
+    "lon": 110.52771729425925,
+    "foto": "Bukit_Talogah.jpg"
+  },
+  {
+    "Nama_Lokasi": "Bukit Wangkang",
+    "Kabupaten": "Kubu Raya",
+    "lat": -0.37913813838223503,
+    "lon": 109.31010037231152,
+    "foto": "Bukit_Wangkang.jpg"
+  },
+  {
+    "Nama_Lokasi": "Pantai Gratis",
+    "Kabupaten": "Singkawang",
+    "lat": 0.8411066823186661,
+    "lon": 108.8751060528173,
+    "foto": "Pantai_Gratis.jpg"
+  },
+  {
+    "Nama_Lokasi": "Parit Mukhsin",
+    "Kabupaten": "Kubu Raya",
+    "lat": -0.11655423490824247,
+    "lon": 109.36060406320225,
+    "foto": "ParitMuhksin.jpg"
+  },
+  {
+    "Nama_Lokasi": "PLBN Jagoi Babang",
+    "Kabupaten": "Bengkayang",
+    "lat": 1.318398084974913,
+    "lon": 109.97397396417165,
+    "foto": "PLBN_JagoiBabang.jpg"
+  },
+  {
+    "Nama_Lokasi": "Riamg Angan",
+    "Kabupaten": "Landak",
+    "lat": 0.2358837113390095,
+    "lon": 110.06800859200972,
+    "foto": "Riam_Angan.jpg"
+  },
+  {
+    "Nama_Lokasi": "Sentabeng 1",
+    "Kabupaten": "Bengkayang",
+    "lat": 1.4082789264816469,
+    "lon": 109.94903377930471,
+    "foto": "Sentabeng1.jpg"
+  },
+  {
+    "Nama_Lokasi": "Sentabeng 2",
+    "Kabupaten": "Bengkayang",
+    "lat": 1.4081808429349705,
+    "lon": 109.94914590821067,
+    "foto": "Sentabeng2.jpg"
+  },
+  {
+    "Nama_Lokasi": "Tugu Khatulistiwa",
+    "Kabupaten": "Pontianak",
+    "lat": 0.0010522843123141436,
+    "lon": 109.32221088305621,
+    "foto": "Tugu_Khatulistiwa.jpg"
+  },
+  {
+    "Nama_Lokasi": "Bukit Macan",
+    "Kabupaten": "Sanggau",
+    "lat": -0.024453071395906707,
+    "lon": 110.56697641052412,
+    "foto": "BukitMacan.jpg"
+  },
+  {
+    "Nama_Lokasi": "Desa Pasak",
+    "Kabupaten": "Kubu Raya",
+    "lat": -0.11602107012688939,
+    "lon": 109.60677703413934,
+    "foto": "Desa_Pasak.jpg"
+  },
+  {
+    "Nama_Lokasi": "Gunung Tangkuban Perahu",
+    "Kabupaten": "Subang",
+    "lat": -6.758002282349174,
+    "lon": 107.61787215228112,
+    "foto": "Gunung_TangkubanPerahu.jpg"
+  },
+  {
+    "Nama_Lokasi": "Kebun Teh",
+    "Kabupaten": "Subang",
+    "lat": -6.7718804276865825,
+    "lon": 107.63727718484158,
+    "foto": "KebuntTeh_Bandung.jpg"
+  },
+  {
+    "Nama_Lokasi": "Istana Amantubillah",
+    "Kabupaten": "Mempawah",
+    "lat": 0.3707745869895306,
+    "lon": 108.96134013148773,
+    "foto": "Keraton_Amantubikkah.jpg"
+  },
+  {
+    "Nama_Lokasi": "Makam Juang Mandor",
+    "Kabupaten": "Landak",
+    "lat": 0.3164963844109277,
+    "lon": 109.33658481617213,
+    "foto": "Makam_JuangMandor.jpg"
+  },
+  {
+    "Nama_Lokasi": "Pantai Bahari Jawai Laut",
+    "Kabupaten": "Sambas",
+    "lat": 1.2946886577703953,
+    "lon": 109.00940537565653,
+    "foto": "Pantai_BahariSambas.jpg"
+  },
+  {
+    "Nama_Lokasi": "Pelabuhan Perikanan Kuala Mempawah",
+    "Kabupaten": "Mempawah",
+    "lat": 0.31688827409437875,
+    "lon": 108.96733475150874,
+    "foto": "Pelabuhan_KualaMempawah.jpg"
+  },
+  {
+    "Nama_Lokasi": "Pulau Kabung",
+    "Kabupaten": "Bengkayang",
+    "lat": 0.825978726472733,
+    "lon": 108.78714280661596,
+    "foto": "Pulau_Kabung.jpg"
+  },
+  {
+    "Nama_Lokasi": "Riam Ampang",
+    "Kabupaten": "Bengkayang",
+    "lat": 1.0552711092869003,
+    "lon": 109.78480688845649,
+    "foto": "Riamg_Ampang.jpg"
+  },
+  {
+    "Nama_Lokasi": "Riamg Barawant",
+    "Kabupaten": "Bengkayang",
+    "lat": 1.1463153546664653,
+    "lon": 109.84694017481712,
+    "foto": "Riamg_Berawant.jpg"
+  },
+  {
+    "Nama_Lokasi": "Riam Merasap",
+    "Kabupaten": "Bengkayang",
+    "lat": 1.1272878760512854,
+    "lon": 109.74468626552074,
+    "foto": "Riam_Merasap.jpg"
+  },
+  {
+    "Nama_Lokasi": "Riam Pangar",
+    "Kabupaten": "Bengkayang",
+    "lat": 1.123345142195668,
+    "lon": 109.74918198781825,
+    "foto": "Riam_Pangar.jpg"
+  },
+  {
+    "Nama_Lokasi": "Air Terjun Saka 2",
+    "Kabupaten": "Sanggau",
+    "lat": -0.04078868432047009,
+    "lon": 110.53658947347942,
+    "foto": "Riam_Saka2.jpg"
+  },
+  {
+    "Nama_Lokasi": "SMA 8",
+    "Kabupaten": "Pontianak",
+    "lat": -0.051535489517298645,
+    "lon": 109.29807040565358,
+    "foto": "SMA8.jpg"
+  },
+  {
+    "Nama_Lokasi": "Wisata Mangrove Sui.Kupah",
+    "Kabupaten": "Kubu Raya",
+    "lat": 0.031753861834147315,
+    "lon": 109.16959407890697,
+    "foto": "Sui_Kupah.jpg"
+  },
+  {
+    "Nama_Lokasi": "Surau Hidayatul Muslimin",
+    "Kabupaten": "Pontianak",
+    "lat": -0.021752805778725168,
+    "lon": 109.3273359487136,
+    "foto": "Surau_HidayatulMuslimin.jpg"
+  },
+  {
+    "Nama_Lokasi": "Kolam Ikan UNTAN",
+    "Kabupaten": "Pontianak",
+    "lat": -0.05859538226881939,
+    "lon": 109.3467987693498,
+    "foto": "Kolam_IkanUNTAN.jpg"
+  },
+  {
+    "Nama_Lokasi": "Pantai Samudra Indah",
+    "Kabupaten": "Bengkayang",
+    "lat": 0.8347613374074976,
+    "lon": 108.86580513191481,
+    "foto": "Pantai_SI.jpg"
+  },
+  {
+    "Nama_Lokasi": "Bukit Rentap",
+    "Kabupaten": "Sintang",
+    "lat": 0.13718365745594163,
+    "lon": 111.72744535958344,
+    "foto": "Bukit_Rentap.jpg"
+  }
+]

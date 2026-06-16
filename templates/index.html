@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalbar Explorer | KiGIS</title>
+    <div class="brand-title">
+  Keliling Kalbar <span>by KiGIS</span>
+    </div>
+    
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+    />
+
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css"
+    />
+
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css"
+    />
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+
+    #map {
+      height: 100vh;
+      width: 100%;
+    }
+
+    /* ===== POPUP CARD STYLE ===== */
+    .brand-title {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1200;
+  background: white;
+  padding: 8px 18px;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  font-family: Arial, sans-serif;
+}
+
+.brand-title span {
+  font-weight: normal;
+  color: #555;
+  margin-left: 6px;
+}
+    .popup-card {
+      width: 220px;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    .popup-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+
+    .popup-card h4 {
+      margin: 4px 0;
+      font-size: 16px;
+    }
+
+    .popup-card p {
+      margin: 0;
+      font-size: 13px;
+      color: #555;
+    }
+
+    .filter-card {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 1000;
+      background: white;
+      padding: 12px 14px;
+      border-radius: 12px;
+      width: 200px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      font-family: Arial, sans-serif;
+    }
+
+    .filter-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #333;
+    }
+
+    .filter-card select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 13px;
+      cursor: pointer;
+      background: #f9f9f9;
+    }
+
+    .filter-card select:hover {
+      border-color: #666;
+    }
+
+.sidebar {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  width: 260px;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: white;
+  padding: 12px;
+  border-radius: 14px 0 0 14px;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  font-family: Arial, sans-serif;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-toggle {
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  z-index: 1100;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.sidebar-toggle:hover {
+  background: #555;
+}
+
+  </style>
+</head>
+
+<body>
+
+<div class="filter-card">
+  <div class="filter-title">🗺️ Filter Lokasi</div>
+  <select id="filterKab">
+    <option value="all">Semua Kabupaten</option>
+  </select>
+</div>
+
+<button id="toggleSidebar" class="sidebar-toggle">☰</button>
+
+<div class="sidebar">
+  <h3>📍 Daftar Lokasi</h3>
+  <ul id="locationList"></ul>
+</div>
+
+<div id="map"></div>
+
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+<script>
+/* ===============================
+   BASEMAPS
+=============================== */
+var osm = L.tileLayer(
+  'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  { attribution: '© OpenStreetMap' }
+);
+
+var darkMap = L.tileLayer(
+  'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+  { attribution: '© CARTO' }
+);
+
+var satellite = L.tileLayer(
+  'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+  { attribution: '© Esri' }
+);
+
+/* ===============================
+   MAP INIT
+=============================== */
+var map = L.map('map', {
+  center: [0.1, 109.5],
+  zoom: 7,
+  layers: [osm],
+  zoomControl: false
+});
+
+L.control.zoom({ position: 'topright' }).addTo(map);
+
+L.control.layers(
+  {
+    "OpenStreetMap": osm,
+    "Dark Map": darkMap,
+    "Satellite": satellite
+  },
+  null,
+  { position: 'topright' }
+).addTo(map);
+
+// Cluster Group //
+var markerCluster = L.markerClusterGroup({
+  showCoverageOnHover: false,
+  maxClusterRadius: 50,
+  spiderfyOnMaxZoom: true
+});
+
+map.addLayer(markerCluster);
+
+/* ===============================
+   DATA, MARKER, SIDEBAR, FILTER
+=============================== */
+var markers = [];
+var kabupatenSet = new Set();
+var list = document.getElementById("locationList");
+
+fetch("/data")
+  .then(res => res.json())
+  .then(data => {
+
+    data.forEach(loc => {
+      kabupatenSet.add(loc.kabupaten);
+
+      var popupContent = `
+        <div class="popup-card">
+          <img src="/static/foto/${loc.foto}" class="popup-img">
+          <h4>${loc.nama}</h4>
+          <p>${loc.kabupaten}</p>
+        </div>
+      `;
+
+        var marker = L.marker([loc.lat, loc.lon])
+        .bindPopup(popupContent);
+
+        markerCluster.addLayer(marker);
+
+
+        marker.kabupaten = loc.kabupaten;
+        markers.push(marker);
+
+      /* ===== SIDEBAR ITEM ===== */
+      var li = document.createElement("li");
+      li.innerHTML = `<b>${loc.nama}</b><br><small>${loc.kabupaten}</small>`;
+
+      li.onclick = function () {
+  markerCluster.zoomToShowLayer(marker, function () {
+    map.setView([loc.lat, loc.lon], 13);
+    marker.openPopup();
+  });
+};
+
+      list.appendChild(li);
+    });
+
+    /* ===== ISI DROPDOWN KABUPATEN ===== */
+    var select = document.getElementById("filterKab");
+    kabupatenSet.forEach(kab => {
+      var opt = document.createElement("option");
+      opt.value = kab;
+      opt.textContent = kab;
+      select.appendChild(opt);
+    });
+  });
+
+/* ===============================
+   FILTER KABUPATEN
+=============================== */
+document.getElementById("filterKab").addEventListener("change", function () {
+  var selected = this.value;
+
+  markerCluster.clearLayers();
+
+  markers.forEach(m => {
+    if (selected === "all" || m.kabupaten === selected) {
+      markerCluster.addLayer(m);
+    }
+  });
+});
+
+  var sidebar = document.querySelector(".sidebar");
+  var toggleBtn = document.getElementById("toggleSidebar");
+
+  toggleBtn.addEventListener("click", function () {
+    sidebar.classList.toggle("open");
+  });
+</script>
+
+
+
+</body>
+</html>
